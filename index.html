@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>+2 Meses ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Arial',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+}
+
+.container{
+    background:white;
+    width:90%;
+    max-width:650px;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+h1{
+    color:#ff4f8b;
+    margin-bottom:25px;
+}
+
+p{
+    font-size:1.25rem;
+    line-height:1.7;
+    color:#444;
+    margin-bottom:15px;
+}
+
+button{
+    margin-top:25px;
+    padding:14px 35px;
+    border:none;
+    border-radius:30px;
+    background:#ff4f8b;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+input{
+    margin-top:20px;
+    padding:12px;
+    width:80%;
+    border-radius:12px;
+    border:2px solid #ffb6cf;
+    text-align:center;
+    font-size:1rem;
+}
+
+.hidden{
+    display:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Pantalla 1 -->
+    <div class="screen">
+        <h1>¡Otro mesetario más! ❤️</h1>
+        <p>Y no sé si te diste cuenta de lo que significa.</p>
+    </div>
+
+    <!-- Pantalla 2 -->
+    <div class="screen hidden">
+        <p>Que ya sobrevivimos otro mes de relación a distancia.</p>
+        <p><strong>¡¡Uno menos!!</strong></p>
+    </div>
+
+    <!-- Pantalla 3 -->
+    <div class="screen hidden">
+        <p>Cuando apenas empezamos esto...</p>
+        <br>
+        <p>Pensar en que pasaría todo un semestre se me hacía muchísimo.</p>
+        <p>Sentía que sería eterno.</p>
+    </div>
+
+    <!-- Pantalla 4 -->
+    <div class="screen hidden">
+        <p>Pero, sin darnos cuenta, ya estamos a un mes de que se acabe.</p>
+        <br>
+        <p>Cada mes que pasa significa que estamos un poquito más cerca de volver a estar en el mismo lugar.</p>
+    </div>
+
+    <!-- Pantalla 5 -->
+    <div class="screen hidden">
+        <p>Y no te voy a mentir...</p>
+        <br>
+        <p>Extrañarte sigue siendo horrible.</p>
+        <br>
+        <p>Pero, en vez de enfocarme en eso, ahora veo que el amor que nos tenemos sí es suficiente para superar cualquier cosa.</p>
+    </div>
+
+    <!-- Pantalla 6 -->
+    <div class="screen hidden">
+        <p>Porque al inicio me daba miedo, pero si ya llegamos hasta aquí...</p>
+        <br>
+        <p>Sé que vamos a lograr superar cualquier cosa con tal de estar juntos.</p>
+    </div>
+
+    <!-- Pantalla 7 -->
+    <div class="screen hidden">
+        <p>Y, como cada mes...</p>
+        <br>
+        <p>Tengo una sorpresa para ti.</p>
+        <br>
+        <p>Y ahora la pregunta es sobre ti, así que si no sabes, ya no sé cómo ayudarte. </p>
+    </div>
+
+    <!-- Pantalla 8 -->
+    <div class="screen hidden">
+
+        <h1>Adivinanza </h1>
+
+        <p><strong>¿Cuál es la comida que siempre quieres comprar si no has comido y por la que siempre te juzgo por comer?</strong></p>
+
+        <p><em>Pista: viene en un cono de papel.</em></p>
+
+        <input id="respuesta" type="text" placeholder="Escribe tu respuesta">
+
+        <br>
+
+        <button onclick="verificar()">Responder</button>
+
+        <p id="resultado" style="margin-top:25px;font-weight:bold;"></p>
+
+    </div>
+
+    <button id="nextBtn">Siguiente ❤️</button>
+
+</div>
+
+<script>
+
+const screens = document.querySelectorAll(".screen");
+const nextBtn = document.getElementById("nextBtn");
+
+let actual = 0;
+
+nextBtn.addEventListener("click",()=>{
+
+    screens[actual].classList.add("hidden");
+    actual++;
+
+    screens[actual].classList.remove("hidden");
+
+    if(actual===screens.length-1){
+        nextBtn.style.display="none";
+    }
+
+});
+
+function verificar(){
+
+    let r=document.getElementById("respuesta").value.toLowerCase().trim();
+
+    if(
+        r.includes("brothers") ||
+        r.includes("brother")
+    ){
+
+        document.getElementById("resultado").innerHTML=
+        "SÍÍÍÍÍÍÍ. <br><br>" +
+        "Sabía que sí te conocías. <br><br>" +
+        "Obviamente eran unas Brothers. <br><br>" +
+        "Así que ya sabes...<br><br>" +
+        "<strong>Mándame a qué hora vas a estar en tu casa.</strong>";
+
+    }else{
+
+        document.getElementById("resultado").innerHTML=
+        "Bye.<br><br>" +
+        "Te odio. <br><br>" +
+        "¿Cómo no supiste si siempre te juzgo por comer eso?<br><br>" +
+        "Pero bueno...<br><br>" +
+        "De todas formas te las voy a mandar. <br><br>" +
+        "<strong>Así que mándame a qué hora vas a estar en tu casa.</strong>";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
